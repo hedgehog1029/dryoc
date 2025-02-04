@@ -150,6 +150,8 @@ pub mod protected;
 
 mod argon2;
 mod blake2b;
+#[cfg(feature = "bytes")]
+mod bytes_bytes;
 #[cfg(feature = "serde")]
 mod bytes_serde;
 mod poly1305;
