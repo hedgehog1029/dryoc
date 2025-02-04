@@ -1,6 +1,6 @@
 //! Bytes trait implementations for the `bytes` crate
 
-use crate::types::{Bytes, MutBytes, ResizableBytes};
+use crate::types::{Bytes, MutBytes, NewBytes, ResizableBytes};
 
 impl Bytes for bytes::Bytes {
     fn as_slice(&self) -> &[u8] {
@@ -27,6 +27,12 @@ impl Bytes for bytes::BytesMut {
 
     fn is_empty(&self) -> bool {
         self.is_empty()
+    }
+}
+
+impl NewBytes for bytes::BytesMut {
+    fn new_bytes() -> Self {
+        Self::new()
     }
 }
 
